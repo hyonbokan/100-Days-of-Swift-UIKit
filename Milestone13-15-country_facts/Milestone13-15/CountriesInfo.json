@@ -1,0 +1,82 @@
+[
+  {
+    "country": "United States of America",
+    "capital": "Washington, D.C.",
+    "size": 9.8,
+    "population": 331000000,
+    "officialLanguage": "English",
+    "government": "Federal presidential constitutional republic"
+  },
+  {
+    "country": "Brazil",
+    "capital": "Brasília",
+    "size": 8.5,
+    "population": 213000000,
+    "officialLanguage": "Portuguese",
+    "government": "Federal presidential constitutional republic"
+  },
+  {
+    "country": "Russia",
+    "capital": "Moscow",
+    "size": 17.1,
+    "population": 146000000,
+    "officialLanguage": "Russian",
+    "government": "Federal semi-presidential constitutional republic"
+  },
+  {
+    "country": "Australia",
+    "capital": "Canberra",
+    "size": 7.7,
+    "population": 25000000,
+    "officialLanguage": "English",
+    "government": "Federal parliamentary constitutional monarchy"
+  },
+  {
+    "country": "China",
+    "capital": "Beijing",
+    "size": 9.6,
+    "population": 1400000000,
+    "officialLanguage": "Mandarin Chinese",
+    "government": "Communist single-party socialist state"
+  },
+  {
+    "country": "India",
+    "capital": "New Delhi",
+    "size": 3.3,
+    "population": 1400000000,
+    "officialLanguage": "Hindi and English",
+    "government": "Federal parliamentary democratic republic"
+  },
+  {
+    "country": "Germany",
+    "capital": "Berlin",
+    "size": 357022,
+    "population": 83000000,
+    "officialLanguage": "German",
+    "government": "Federal parliamentary republic"
+  },
+  {
+    "country": "Canada",
+    "capital": "Ottawa",
+    "size": 9.98,
+    "population": 38000000,
+    "officialLanguage": "English and French",
+    "government": "Federal parliamentary democracy and constitutional monarchy"
+  },
+  {
+    "country": "Japan",
+    "capital": "Tokyo",
+    "size": 377975,
+    "population": 126000000,
+    "officialLanguage": "Japanese",
+    "government": "Unitary parliamentary constitutional monarchy"
+  },
+  {
+    "country": "United Kingdom",
+    "capital": "London",
+    "size": 243610,
+    "population": 66000000,
+    "officialLanguage": "English",
+    "government": "Unitary parliamentary constitutional monarchy"
+  }
+]
