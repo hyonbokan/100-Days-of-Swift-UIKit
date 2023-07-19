@@ -46,11 +46,11 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 		content.userInfo = ["customData": "fizzbuzz"]
 		content.sound = UNNotificationSound.default
 
-		var dateComponents = DateComponents()
-		dateComponents.hour = 10
-		dateComponents.minute = 30
-		let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-
+//		var dateComponents = DateComponents()
+//		dateComponents.hour = 10
+//		dateComponents.minute = 30
+//		let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
 		let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 		center.add(request)
 	}

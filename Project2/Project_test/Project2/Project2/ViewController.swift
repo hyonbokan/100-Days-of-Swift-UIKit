@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     @IBOutlet var button1: UIButton!
     
@@ -23,6 +23,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        // Request authorization
+//        let center = UNUserNotificationCenter.current()
+//
+//        center.requestAuthorization(options: [.alert, .badge, .sound]) {
+//            granted, error in
+//            if granted {
+//                print("Permisson granted!")
+//            } else {
+//                print("Permisson denided")
+//            }
+//        }
+        registerCategories()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showScore))
         
@@ -130,5 +142,59 @@ class ViewController: UIViewController {
             defaults.set(savedData, forKey: "highestScore")
         }
     }
+    
+    // Day 73 Challenge - Notification
+    
+    func registerCategories() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        center.delegate = self
+        // Authorization
+            center.requestAuthorization(options: [.alert, .badge, .sound]) {
+                granted, error in
+                    if granted {
+                        print("Permisson granted!")
+                    } else {
+                        print("Permisson denided")
+                    }
+                }
+        // Creating categories
+        let openApp = UNNotificationAction(identifier: "open", title: "Play the game!", options: .foreground)
+        
+        let category = UNNotificationCategory(identifier: "alert", actions: [openApp], intentIdentifiers: [])
+        
+        center.setNotificationCategories([category])
+        
+        // Creating content
+        let content = UNMutableNotificationContent()
+        content.title = "Project-2 Flag Game"
+        content.body = "It's been a while. Let's play again!"
+        content.categoryIdentifier = "alert"
+        content.userInfo = ["customData": "Some data..."]
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
+
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let customData = userInfo["customData"] as? String {
+            print("Custom data recieved: \(customData)")
+            
+            switch response.actionIdentifier{
+            case UNNotificationDefaultActionIdentifier:
+                print("Default identifier - App launched")
+            default:
+                break
+            }
+        }
+        completionHandler()
+    }
+    
 }
 
