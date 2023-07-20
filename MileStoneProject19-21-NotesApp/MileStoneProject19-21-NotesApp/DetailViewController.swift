@@ -10,23 +10,12 @@ import UIKit
 class DetailViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var textField: UITextView!
     var detailNote: Note?
-    
+    var allNoteDetail = [Note]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //load data
-        let defaults = UserDefaults.standard
-        
-        if let savedNotes = defaults.object(forKey: "notes") as? Data {
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                detailNote = try jsonDecoder.decode(Note.self, from: savedNotes)
-            } catch {
-                print("Failed to load data!")
-            }
-        }
         
         guard let currentNote = detailNote else { return }
         title = currentNote.title
@@ -41,8 +30,10 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         // Keyboard observer - bottom
     }
-    // Trigger save when there are changes in the text field
-    func textViewDidEndEditing(_ textView: UITextView) {
+    
+    // Trigger save when the view will disappear (user navigates back from the DetailViewController)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         save()
     }
     
@@ -51,8 +42,12 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         guard let currentNote = detailNote else { return }
         currentNote.body = textField.text ?? ""
         
+        if let index = allNoteDetail.firstIndex(where: {$0 === currentNote}) {
+            allNoteDetail[index] = currentNote
+        }
+        
         let jsonEncoder = JSONEncoder()
-        if let savedData = try? jsonEncoder.encode(currentNote){
+        if let savedData = try? jsonEncoder.encode(allNoteDetail){
             let defaults = UserDefaults.standard
             defaults.set(savedData, forKey: "notes")
         } else {

@@ -45,12 +45,12 @@ class ViewController: UITableViewController {
             // create new instance of Note()
             let newNote = Note(title: title, body: "")
             self?.allNotes.append(newNote)
+            self?.save()
             self?.tableView.reloadData()
         }
         ac.addAction(createNote)
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
-        save() 
     }
     
     @objc func deleteNote(){
@@ -73,8 +73,9 @@ class ViewController: UITableViewController {
             // (where: { $0.title == title }) is a closure used as an argument for the firstIndex() method. It's a concise way of expressing a condition that is used to find the index of an element in the array that satisfies the given condition. $0: refers to the current element in the array.
             if let index = self?.allNotes.firstIndex(where: {$0.title == inputTitle}) {
                 self?.allNotes.remove(at: index)
-                self?.tableView.reloadData()
                 print("Note with title '\(inputTitle)' deleted!")
+                self?.save()
+                self?.tableView.reloadData()
             } else {
                 self?.error(errorMessage: "The note with a title \(inputTitle) not found")
             }
@@ -82,7 +83,6 @@ class ViewController: UITableViewController {
         ac.addAction(deleteNote)
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
-        save()
     }
     func error(errorMessage message: String){
         let errorAlert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -115,6 +115,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.detailNote = allNotes[indexPath.row]
+            vc.allNoteDetail = allNotes
             navigationController?.pushViewController(vc, animated: true)
         }
     }
