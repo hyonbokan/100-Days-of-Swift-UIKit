@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9E46A2102A681A60003CD062 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E46A20F2A681A60003CD062 /* Note.swift */; };
+		9EA42D932A67A8E4000DCAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA42D922A67A8E4000DCAD0 /* AppDelegate.swift */; };
+		9EA42D952A67A8E4000DCAD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA42D942A67A8E4000DCAD0 /* SceneDelegate.swift */; };
+		9EA42D972A67A8E4000DCAD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA42D962A67A8E4000DCAD0 /* ViewController.swift */; };
+		9EA42D9A2A67A8E4000DCAD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EA42D982A67A8E4000DCAD0 /* Main.storyboard */; };
+		9EA42D9C2A67A8E5000DCAD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EA42D9B2A67A8E5000DCAD0 /* Assets.xcassets */; };
+		9EA42D9F2A67A8E5000DCAD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EA42D9D2A67A8E5000DCAD0 /* LaunchScreen.storyboard */; };
+		9EA42DA72A67AA99000DCAD0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA42DA62A67AA99000DCAD0 /* DetailViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9E46A20F2A681A60003CD062 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		9EA42D8F2A67A8E4000DCAD0 /* MileStoneProject19-21-NotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MileStoneProject19-21-NotesApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA42D922A67A8E4000DCAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9EA42D942A67A8E4000DCAD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9EA42D962A67A8E4000DCAD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9EA42D992A67A8E4000DCAD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9EA42D9B2A67A8E5000DCAD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9EA42D9E2A67A8E5000DCAD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9EA42DA02A67A8E5000DCAD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EA42DA62A67AA99000DCAD0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9EA42D8C2A67A8E4000DCAD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9EA42D862A67A8E4000DCAD0 = {
+			isa = PBXGroup;
+			children = (
+				9EA42D912A67A8E4000DCAD0 /* MileStoneProject19-21-NotesApp */,
+				9EA42D902A67A8E4000DCAD0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9EA42D902A67A8E4000DCAD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EA42D8F2A67A8E4000DCAD0 /* MileStoneProject19-21-NotesApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9EA42D912A67A8E4000DCAD0 /* MileStoneProject19-21-NotesApp */ = {
+			isa = PBXGroup;
+			children = (
+				9EA42D922A67A8E4000DCAD0 /* AppDelegate.swift */,
+				9EA42D942A67A8E4000DCAD0 /* SceneDelegate.swift */,
+				9E46A20F2A681A60003CD062 /* Note.swift */,
+				9EA42DA62A67AA99000DCAD0 /* DetailViewController.swift */,
+				9EA42D962A67A8E4000DCAD0 /* ViewController.swift */,
+				9EA42D982A67A8E4000DCAD0 /* Main.storyboard */,
+				9EA42D9B2A67A8E5000DCAD0 /* Assets.xcassets */,
+				9EA42D9D2A67A8E5000DCAD0 /* LaunchScreen.storyboard */,
+				9EA42DA02A67A8E5000DCAD0 /* Info.plist */,
+			);
+			path = "MileStoneProject19-21-NotesApp";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9EA42D8E2A67A8E4000DCAD0 /* MileStoneProject19-21-NotesApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EA42DA32A67A8E5000DCAD0 /* Build configuration list for PBXNativeTarget "MileStoneProject19-21-NotesApp" */;
+			buildPhases = (
+				9EA42D8B2A67A8E4000DCAD0 /* Sources */,
+				9EA42D8C2A67A8E4000DCAD0 /* Frameworks */,
+				9EA42D8D2A67A8E4000DCAD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MileStoneProject19-21-NotesApp";
+			productName = "MileStoneProject19-21-NotesApp";
+			productReference = 9EA42D8F2A67A8E4000DCAD0 /* MileStoneProject19-21-NotesApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9EA42D872A67A8E4000DCAD0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					9EA42D8E2A67A8E4000DCAD0 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 9EA42D8A2A67A8E4000DCAD0 /* Build configuration list for PBXProject "MileStoneProject19-21-NotesApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9EA42D862A67A8E4000DCAD0;
+			productRefGroup = 9EA42D902A67A8E4000DCAD0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9EA42D8E2A67A8E4000DCAD0 /* MileStoneProject19-21-NotesApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9EA42D8D2A67A8E4000DCAD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EA42D9F2A67A8E5000DCAD0 /* LaunchScreen.storyboard in Resources */,
+				9EA42D9C2A67A8E5000DCAD0 /* Assets.xcassets in Resources */,
+				9EA42D9A2A67A8E4000DCAD0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9EA42D8B2A67A8E4000DCAD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EA42D972A67A8E4000DCAD0 /* ViewController.swift in Sources */,
+				9EA42D932A67A8E4000DCAD0 /* AppDelegate.swift in Sources */,
+				9EA42D952A67A8E4000DCAD0 /* SceneDelegate.swift in Sources */,
+				9EA42DA72A67AA99000DCAD0 /* DetailViewController.swift in Sources */,
+				9E46A2102A681A60003CD062 /* Note.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9EA42D982A67A8E4000DCAD0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EA42D992A67A8E4000DCAD0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9EA42D9D2A67A8E5000DCAD0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EA42D9E2A67A8E5000DCAD0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9EA42DA12A67A8E5000DCAD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9EA42DA22A67A8E5000DCAD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9EA42DA42A67A8E5000DCAD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KFKP37Q73C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MileStoneProject19-21-NotesApp/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.khenbo.MileStoneProject19-21-NotesApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9EA42DA52A67A8E5000DCAD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KFKP37Q73C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MileStoneProject19-21-NotesApp/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.khenbo.MileStoneProject19-21-NotesApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9EA42D8A2A67A8E4000DCAD0 /* Build configuration list for PBXProject "MileStoneProject19-21-NotesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EA42DA12A67A8E5000DCAD0 /* Debug */,
+				9EA42DA22A67A8E5000DCAD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EA42DA32A67A8E5000DCAD0 /* Build configuration list for PBXNativeTarget "MileStoneProject19-21-NotesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EA42DA42A67A8E5000DCAD0 /* Debug */,
+				9EA42DA52A67A8E5000DCAD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9EA42D872A67A8E4000DCAD0 /* Project object */;
+}
