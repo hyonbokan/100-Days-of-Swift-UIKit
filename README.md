@@ -11,7 +11,12 @@ The original course can be found at: [Hacking with Swift - 100 Days of Swift - U
 
 ## Disclaimer
 
-Please note that the projects and solutions in this repository are my own personal attempts and may not always reflect the most optimal or perfect implementation. The primary purpose of this repository is to document my learning journey throughout the "100 Days of Swift" UIKit course and to serve as reference for those who want to compare their solutions with mine.
+Please note that the projects and solutions in this repository are my own personal attempts and may not always reflect the most optimal or perfect implementation. The primary purpose of this repository is to document my learning journey throughout the "100 Days of Swift" UIKit course and to serve as a reference for those who want to compare their solutions with mine.
+
+Additionally, it is important to mention that the original course materials might include functions, parameters, and methods that have been deprecated in newer versions of iOS. Therefore, I have incorporated updated code up to **iOS version 16.4**.
+
+Please use this repository as a learning resource and consult official Apple documentation or other reputable sources for the most current guidelines and practices when working with Swift and UIKit. While I have made efforts to keep the code updated, technology is constantly evolving, and it is essential to stay informed about the latest developments in iOS development.
+
 
 ## Acknowledgments
 

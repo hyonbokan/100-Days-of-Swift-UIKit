@@ -13,9 +13,6 @@
 		BD0DD4322A6954E600488BFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0DD4302A6954E600488BFE /* Main.storyboard */; };
 		BD0DD4342A6954E700488BFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0DD4332A6954E700488BFE /* Assets.xcassets */; };
 		BD0DD4372A6954E700488BFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0DD4352A6954E700488BFE /* LaunchScreen.storyboard */; };
-		BD0DD4422A6954E700488BFE /* Project22_iBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0DD4412A6954E700488BFE /* Project22_iBeaconTests.swift */; };
-		BD0DD44C2A6954E700488BFE /* Project22_iBeaconUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0DD44B2A6954E700488BFE /* Project22_iBeaconUITests.swift */; };
-		BD0DD44E2A6954E700488BFE /* Project22_iBeaconUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0DD44D2A6954E700488BFE /* Project22_iBeaconUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +42,7 @@
 		BD0DD4362A6954E700488BFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD0DD4382A6954E700488BFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD0DD43D2A6954E700488BFE /* Project22-iBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project22-iBeaconTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD0DD4412A6954E700488BFE /* Project22_iBeaconTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project22_iBeaconTests.swift; sourceTree = "<group>"; };
 		BD0DD4472A6954E700488BFE /* Project22-iBeaconUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project22-iBeaconUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD0DD44B2A6954E700488BFE /* Project22_iBeaconUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project22_iBeaconUITests.swift; sourceTree = "<group>"; };
-		BD0DD44D2A6954E700488BFE /* Project22_iBeaconUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project22_iBeaconUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				BD0DD4292A6954E600488BFE /* Project22-iBeacon */,
-				BD0DD4402A6954E700488BFE /* Project22-iBeaconTests */,
-				BD0DD44A2A6954E700488BFE /* Project22-iBeaconUITests */,
 				BD0DD4282A6954E600488BFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,23 +100,6 @@
 				BD0DD4382A6954E700488BFE /* Info.plist */,
 			);
 			path = "Project22-iBeacon";
-			sourceTree = "<group>";
-		};
-		BD0DD4402A6954E700488BFE /* Project22-iBeaconTests */ = {
-			isa = PBXGroup;
-			children = (
-				BD0DD4412A6954E700488BFE /* Project22_iBeaconTests.swift */,
-			);
-			path = "Project22-iBeaconTests";
-			sourceTree = "<group>";
-		};
-		BD0DD44A2A6954E700488BFE /* Project22-iBeaconUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BD0DD44B2A6954E700488BFE /* Project22_iBeaconUITests.swift */,
-				BD0DD44D2A6954E700488BFE /* Project22_iBeaconUITestsLaunchTests.swift */,
-			);
-			path = "Project22-iBeaconUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +243,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0DD4422A6954E700488BFE /* Project22_iBeaconTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD0DD44E2A6954E700488BFE /* Project22_iBeaconUITestsLaunchTests.swift in Sources */,
-				BD0DD44C2A6954E700488BFE /* Project22_iBeaconUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
