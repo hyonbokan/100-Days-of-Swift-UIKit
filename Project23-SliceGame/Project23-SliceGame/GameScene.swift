@@ -172,6 +172,30 @@ class GameScene: SKScene {
                 
                 run(SKAction.playSoundFileNamed("explosion.caf", waitForCompletion: false))
                 endGame(triggeredByBomb: true)
+            } else if node.name == "fastEnemy" {
+                // destroy the penguin
+                if let emitter = SKEmitterNode(fileNamed: "sliceHitEnemy") {
+                    emitter.position = node.position
+                    addChild(emitter)
+                }
+                
+                node.name = ""
+                node.physicsBody?.isDynamic = false
+                
+                let scaleOut = SKAction.scale(to: 0.001, duration: 0.2)
+                let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+                // Check what .group does
+                let group = SKAction.group([scaleOut, fadeOut])
+                
+                let seq = SKAction.sequence([group, .removeFromParent()])
+                node.run(seq)
+                // Challenge 2
+                score += 5
+                
+                if let index = activeEnemies.firstIndex(of: node) {
+                    activeEnemies.remove(at: index)
+                }
+                run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
             }
         }
     }
@@ -191,6 +215,12 @@ class GameScene: SKScene {
             livesImages[1].texture = SKTexture(imageNamed: "sliceLifeGone")
             livesImages[2].texture = SKTexture(imageNamed: "sliceLifeGone")
         }
+        //Chanllenge 3
+        let gameOver = SKSpriteNode(imageNamed: "gameOver")
+        run(SKAction.playSoundFileNamed("gameOver.wav", waitForCompletion: false))
+        gameOver.position = CGPoint(x: 512, y: 420)
+        gameOver.zPosition = 1
+        addChild(gameOver)
     }
     
     func playSwooshSound() {
@@ -252,16 +282,20 @@ class GameScene: SKScene {
     
     func createEnemy(forceBomb: ForceBomb = .random) {
         let enemy: SKSpriteNode
-        // The magic number?
         var enemyType = Int.random(in: 0...6)
-        
+        print("First enemy type: \(enemyType)")
+        //Challenge 1: Defining constants for enemy/penguin
+        let bombEnemy = 0
+        let penguin = 1
+        // Challenge 2: fast moving pengion
+        let fastPenguin = 2
         if forceBomb == .never {
-            enemyType = 1
+            enemyType = penguin
         } else if forceBomb == .always {
-            enemyType = 0
+            enemyType = bombEnemy
         }
         
-        if enemyType == 0 {
+        if enemyType == bombEnemy {
             // bomb code
             enemy = SKSpriteNode()
             enemy.zPosition = 1
@@ -288,15 +322,24 @@ class GameScene: SKScene {
                 // Add emitter effect to the bomb - "enemy"
                 enemy.addChild(emitter)
             }
-        } else {
+            print("Enemy name: \(enemy.name!)")
+            
+        } else if enemyType == penguin{
             enemy = SKSpriteNode(imageNamed: "penguin")
             run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
             enemy.name = "enemy"
+            print("Enemy name: \(enemy.name!)")
+        } else {
+            enemy = SKSpriteNode(imageNamed: "penguin")
+            run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
+            enemy.name = "fastEnemy"
+            print("Enemy name: \(enemy.name!)")
         }
         //position code
         let randomPosition = CGPoint(x: Int.random(in: 64...960), y: -128)
         enemy.position = randomPosition
         
+        // randomAngularVelocity allows nodes to rotate
         let randomAngularVelocity = CGFloat.random(in: -3...3)
         let randomXVelocity: Int
         // Check what random velocity mean
@@ -310,14 +353,25 @@ class GameScene: SKScene {
             randomXVelocity = -Int.random(in: 8...15)
         }
         
-        let randomYVelocity = Int.random(in: 20...30)
+        let randomYVelocity = Int.random(in: 20...25)
         
         //dx and dy are the components of the vector. A CGVector represents a two-dimensional vector, and its components dx and dy specify the displacement in the x-axis and y-axis, respectively.
-        
-        enemy.physicsBody = SKPhysicsBody(circleOfRadius: 64)
-        enemy.physicsBody?.velocity = CGVector(dx: randomXVelocity * 40, dy: randomYVelocity * 40)
-        enemy.physicsBody?.angularVelocity = randomAngularVelocity
-        enemy.physicsBody?.collisionBitMask = 0
+        if enemy.name == "bombContainer" || enemy.name == "enemy" {
+            enemy.physicsBody = SKPhysicsBody(circleOfRadius: 64)
+            enemy.physicsBody?.velocity = CGVector(dx: randomXVelocity * 40, dy: randomYVelocity * 40)
+            enemy.physicsBody?.angularVelocity = randomAngularVelocity
+            enemy.physicsBody?.collisionBitMask = 0
+            print("Normal speed: \(enemy.physicsBody!.velocity)")
+        } else {
+            // Challenge 2: Fast enemy
+            enemy.physicsBody = SKPhysicsBody(circleOfRadius: 64)
+            enemy.physicsBody?.velocity = CGVector(dx: randomXVelocity * 40, dy: randomYVelocity * 50)
+            enemy.physicsBody?.angularVelocity = randomAngularVelocity
+            enemy.physicsBody?.collisionBitMask = 0
+            print(enemy.physicsBody!.velocity)
+            print("Fast speed: \(enemy.physicsBody!.velocity)")
+        }
+
         
         addChild(enemy)
         activeEnemies.append(enemy)
@@ -352,7 +406,7 @@ class GameScene: SKScene {
 //                    activeEnemies.remove(at: index)
                     node.removeAllActions()
                     
-                    if node.name == "enemy" {
+                    if node.name == "enemy" || node.name == "fastEnemy" {
                         node.name = ""
                         subtractLife()
                         
