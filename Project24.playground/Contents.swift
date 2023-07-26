@@ -33,8 +33,8 @@ extension String {
         guard self.hasSuffix(suffix) else { return self }
         return String(self.dropLast(suffix.count))
     }
-    
 }
+
 
 
 let weather = "it's going to rain"
@@ -49,7 +49,7 @@ extension String {
 }
 
 
-let input = " Swift is like Objective-C without the C"
+let input = "Swift is like Objective-C without the C"
 input.contains("Swift")
 
 
@@ -71,6 +71,8 @@ input.containsAny(of: languages)
 
 languages.contains(where: input.contains)
 
+
+
 let string = "This is a test string"
 
 //let attributes: [NSAttributedString.Key: Any] = [
@@ -91,5 +93,56 @@ attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 8), range:
 attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 8), range: NSRange(location: 10, length: 4))
 attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 8), range: NSRange(location: 15, length: 6))
 
+// Challenge 1
+extension String {
+    func addPrefix(_ prefix: String) -> String {
+        if self.hasPrefix(prefix){
+            return self
+        }
+        return prefix + self
+    }
+}
 
-    
+var test = "pet"
+var prefix = "car"
+let result = test.addPrefix(prefix)
+print(result)
+
+
+// Challenge 2
+
+//let numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+extension String {
+    func isNumeric(array: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]) -> Bool {
+        for item in array {
+            if self.contains(item) {
+                return true
+            }
+        }
+        return false
+    }
+}
+
+test = "He wears the number 23"
+test.isNumeric()
+
+// Challenge 3
+extension String {
+    func stringToArray() -> [String] {
+            var result: [String] = []
+            self.enumerateLines {
+                //The line parameter represents the current line of the string, and the _ parameter represents the range of the line in the original string. Rage is the index of the letter in String.
+                 line, _ in
+                result.append(line)
+            }
+            return result
+    }
+}
+
+test = "this nis na ntest"
+var linesArray = test.stringToArray()
+print(linesArray)
+
+test = "this\nis\na\ntest"
+linesArray = test.stringToArray()
+print(linesArray)
