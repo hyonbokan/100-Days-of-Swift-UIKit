@@ -15,6 +15,8 @@
 		9E3C35222A73558000A0467A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E3C35212A73558000A0467A /* Assets.xcassets */; };
 		9E3C35252A73558000A0467A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3C35232A73558000A0467A /* LaunchScreen.storyboard */; };
 		9E3C352C2A73563700A0467A /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9E3C352B2A73563700A0467A /* level1.txt */; };
+		BD3870D72A76702F005D65D6 /* level3.txt in Resources */ = {isa = PBXBuildFile; fileRef = BD3870D52A76702F005D65D6 /* level3.txt */; };
+		BD3870D82A76702F005D65D6 /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = BD3870D62A76702F005D65D6 /* level2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		9E3C35212A73558000A0467A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E3C35242A73558000A0467A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E3C352B2A73563700A0467A /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = level1.txt; path = "../../files/Classic/project26-files/Content/level1.txt"; sourceTree = "<group>"; };
+		BD3870D52A76702F005D65D6 /* level3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = level3.txt; path = "../../files/Classic/project26-files/Content/level3.txt"; sourceTree = "<group>"; };
+		BD3870D62A76702F005D65D6 /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = level2.txt; path = "../../files/Classic/project26-files/Content/level2.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				9E3C35212A73558000A0467A /* Assets.xcassets */,
 				9E3C35232A73558000A0467A /* LaunchScreen.storyboard */,
 				9E3C352B2A73563700A0467A /* level1.txt */,
+				BD3870D62A76702F005D65D6 /* level2.txt */,
+				BD3870D52A76702F005D65D6 /* level3.txt */,
 			);
 			path = "Project26-Game-CoreMotion";
 			sourceTree = "<group>";
@@ -130,6 +136,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3C352C2A73563700A0467A /* level1.txt in Resources */,
+				BD3870D82A76702F005D65D6 /* level2.txt in Resources */,
+				BD3870D72A76702F005D65D6 /* level3.txt in Resources */,
 				9E3C35202A73557F00A0467A /* Main.storyboard in Resources */,
 				9E3C35172A73557F00A0467A /* GameScene.sks in Resources */,
 				9E3C35222A73558000A0467A /* Assets.xcassets in Resources */,
