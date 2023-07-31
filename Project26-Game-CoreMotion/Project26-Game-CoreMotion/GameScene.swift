@@ -63,7 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
         scoreLabel.text = "Score: \(score)"
         scoreLabel.horizontalAlignmentMode = .left
-        scoreLabel.position = CGPoint(x: 16, y: 16)
+        scoreLabel.position = CGPoint(x: 20, y: 35)
         scoreLabel.zPosition = 2
         addChild(scoreLabel)
         
@@ -75,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // check enumerated() method
             for (row, line) in lines.reversed().enumerated() {
                 for (column, letter) in line.enumerated() {
-                    let position = CGPoint(x: (64 * column) + 32, y: (64 * row) + 32)
+                    let position = CGPoint(x: (64 * column) + 32, y: (64 * row))
                     // We could use 'switch' instead of 'if'
                     if letter == "x" {
                         // load wall
@@ -100,8 +100,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         } else {
-            //
-            print("Game Over")
+            removeAllChildren()
+            gameLevel = 1
+            print("Back to level 1")
+            loadLevel()
         }
     }
     
