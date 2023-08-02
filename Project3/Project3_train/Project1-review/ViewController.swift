@@ -23,7 +23,7 @@ class ViewController: UITableViewController {
         
         for item in allItems{
             if item.hasPrefix("nss"){
-                print(item)
+//                print(item)
                 pictures.append(item)
                 pictures.sort()
             }
@@ -36,7 +36,6 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListOfPictures", for: indexPath)
-        print("These are pictures[indexPath.row]: \(indexPath.row)" )
         cell.textLabel?.text = pictures[indexPath.row]
         
         return cell
@@ -51,10 +50,4 @@ class ViewController: UITableViewController {
             navigationController?.pushViewController(imageVC, animated: true)
         }
     }
-    
-//    @objc func shareApp() {
-//        guard
-//    }
-//
-    
 }

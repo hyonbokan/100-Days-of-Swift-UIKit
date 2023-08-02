@@ -27,12 +27,14 @@ class ImageViewController: UIViewController {
         
         
 //        if let imageToLoad = selectedImage { ... }:
-//
 //        This line checks if the selectedImage variable has a non-nil value using optional binding (if let statement).
 //        If selectedImage is not nil, the code inside the block is executed.
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
+            
         }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,16 +48,25 @@ class ImageViewController: UIViewController {
     }
     
     @objc func shareTapped() {
-        guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
-            print("No image found")
-            return
-        }
+//        guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
+//            print("No image found")
+//            return
+//        }
         guard let imageName = selectedImage else {
             print("No image name found")
             return
         }
+        //Day89: Challenge - change how the image is shared using UIGraphics
+        guard let originalSize = imageView.image?.size else { return }
+//        print(originalSize)
+        let renderer = UIGraphicsImageRenderer(size: originalSize)
+        let canvas = renderer.image{
+            ctx in
+            let selectedImage = self.imageView.image
+            selectedImage?.draw(at: CGPoint(x: 0, y: 0))
+        }
         
-        let vc = UIActivityViewController(activityItems: [image, imageName], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: [canvas, imageName], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }

@@ -15,14 +15,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        drawRectangle()
+        drawEmoji()
+//        drawRectangle()
     }
 
     @IBAction func redrawTapped(_ sender: Any) {
         currentDrawType += 1
         print(currentDrawType)
         
-        if currentDrawType > 5 {
+        if currentDrawType > 6 {
             currentDrawType = 0
         }
         
@@ -44,6 +45,9 @@ class ViewController: UIViewController {
         
         case 5:
             drawImagesAndText()
+        
+        case 6:
+            drawEmoji()
             
         default:
             break
@@ -80,6 +84,7 @@ class ViewController: UIViewController {
             ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
             ctx.cgContext.setLineWidth(10) //10 point border
             
+            // addEllipse - adds an elliptical (oval) path to the current graphics context.
             ctx.cgContext.addEllipse(in: rectangle)
             ctx.cgContext.drawPath(using: .fillStroke)
         }
@@ -177,10 +182,52 @@ class ViewController: UIViewController {
             
             let mouse = UIImage(named: "mouse")
             mouse?.draw(at: CGPoint(x: 300, y: 150))
-            
             }
         imageView.image = image
         }
         
+    func drawEmoji() {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
+        
+        let emoji = renderer.image { ctx in
+            // Draw the face
+            let face = CGRect(x: 0, y: 0, width: 512, height: 512).insetBy(dx: 5, dy: 5)
+            ctx.cgContext.setFillColor(UIColor.yellow.cgColor)
+            ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
+            ctx.cgContext.setLineWidth(1)
+            ctx.cgContext.addEllipse(in: face)
+            ctx.cgContext.drawPath(using: .fillStroke)
+            
+            
+            let rightEye = CGRect(x: face.size.width - 150, y: face.size.height - 370, width: 25, height: 80)
+            ctx.cgContext.setFillColor(UIColor.gray.cgColor)
+            ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
+            ctx.cgContext.setLineWidth(1)
+            ctx.cgContext.addEllipse(in: rightEye)
+            ctx.cgContext.drawPath(using: .fillStroke)
+            
+            let leftEye = CGRect(x: face.size.width - 350, y: face.size.height - 370, width: 25, height: 80)
+            ctx.cgContext.setFillColor(UIColor.gray.cgColor)
+            ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
+            ctx.cgContext.setLineWidth(1)
+            ctx.cgContext.addEllipse(in: leftEye)
+            ctx.cgContext.drawPath(using: .fillStroke)
+            // Instead of TWIN, I tried to draw lips
+            let lipPath = UIBezierPath()
+            //.move(to:) method is used to set the starting point of the path.
+            lipPath.move(to: CGPoint(x: face.size.width - 250, y: face.size.height - 200))
+            //.addCurve "to" parameter specifies the end point of the curve.
+            lipPath.addCurve(to: CGPoint(x: face.size.width - 250, y: face.size.height - 150),
+                             controlPoint1: CGPoint(x: face.size.width - 200, y: face.size.height - 170),
+                             controlPoint2: CGPoint(x: face.size.width - 250, y: face.size.height - 150))
+            lipPath.addCurve(to: CGPoint(x: face.size.width - 250, y: face.size.height - 100),
+                             controlPoint1: CGPoint(x: face.size.width - 200, y: face.size.height - 120),
+                             controlPoint2: CGPoint(x: face.size.width - 250, y: face.size.height - 100))
+            ctx.cgContext.setFillColor(UIColor.red.cgColor)
+            lipPath.fill()
+        }
+        
+        imageView.image = emoji
+    }
 }
 
