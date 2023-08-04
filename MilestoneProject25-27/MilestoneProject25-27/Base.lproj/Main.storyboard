@@ -17,18 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="01W-G3-ENK">
-                                <rect key="frame" x="16" y="70" width="360" height="600"/>
+                                <rect key="frame" x="16" y="103" width="360" height="567"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="601.33333333333337" id="jIn-Rv-NIm"/>
+                                    <constraint firstAttribute="height" constant="567" id="DLj-Fe-gBI"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8z-hE-pKy">
                                 <rect key="frame" x="16" y="700" width="150" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="4fa-BY-rIJ"/>
+                                    <constraint firstAttribute="width" constant="150" id="fpY-dJ-oq0"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Top Text"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Set Top Text"/>
                                 <connections>
                                     <action selector="topTextTapped:" destination="kYC-Dx-nRX" eventType="touchUpInside" id="vjx-Ri-5Ao"/>
                                 </connections>
@@ -36,7 +36,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cmu-BN-HPR">
                                 <rect key="frame" x="226" y="700" width="150" height="50"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Set Bottom Test"/>
                                 <connections>
                                     <action selector="bottomTextTapped:" destination="kYC-Dx-nRX" eventType="touchUpInside" id="J09-Px-UjQ"/>
                                 </connections>
@@ -45,14 +45,14 @@
                         <viewLayoutGuide key="safeArea" id="ETu-pj-5ES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="01W-G3-ENK" firstAttribute="leading" secondItem="UbO-2W-jpH" secondAttribute="leadingMargin" id="Oca-lh-wU3"/>
-                            <constraint firstItem="01W-G3-ENK" firstAttribute="leading" secondItem="i8z-hE-pKy" secondAttribute="leading" id="Qpa-Wi-D6a"/>
-                            <constraint firstItem="01W-G3-ENK" firstAttribute="top" secondItem="UbO-2W-jpH" secondAttribute="topMargin" constant="-34" id="Ry3-Yz-awE"/>
-                            <constraint firstItem="01W-G3-ENK" firstAttribute="trailing" secondItem="Cmu-BN-HPR" secondAttribute="trailing" id="k3q-84-t1g"/>
-                            <constraint firstItem="i8z-hE-pKy" firstAttribute="baseline" secondItem="Cmu-BN-HPR" secondAttribute="baseline" id="kAV-AY-lNE"/>
-                            <constraint firstItem="01W-G3-ENK" firstAttribute="centerX" secondItem="UbO-2W-jpH" secondAttribute="centerX" id="sPZ-LI-fSa"/>
-                            <constraint firstItem="Cmu-BN-HPR" firstAttribute="leading" secondItem="i8z-hE-pKy" secondAttribute="trailing" constant="60" id="wJE-fa-GhS"/>
-                            <constraint firstItem="i8z-hE-pKy" firstAttribute="top" secondItem="01W-G3-ENK" secondAttribute="bottom" constant="29.666666666666629" id="yGF-B3-JZF"/>
+                            <constraint firstItem="i8z-hE-pKy" firstAttribute="baseline" secondItem="Cmu-BN-HPR" secondAttribute="baseline" id="1qj-Jt-jWr"/>
+                            <constraint firstItem="i8z-hE-pKy" firstAttribute="top" secondItem="01W-G3-ENK" secondAttribute="bottom" constant="30" id="7Ri-zv-ei1"/>
+                            <constraint firstItem="01W-G3-ENK" firstAttribute="leading" secondItem="i8z-hE-pKy" secondAttribute="leading" id="L1a-aY-FsA"/>
+                            <constraint firstItem="01W-G3-ENK" firstAttribute="trailing" secondItem="Cmu-BN-HPR" secondAttribute="trailing" id="Lkq-Yb-fgK"/>
+                            <constraint firstItem="01W-G3-ENK" firstAttribute="centerX" secondItem="UbO-2W-jpH" secondAttribute="centerX" id="UH3-yv-njB"/>
+                            <constraint firstItem="01W-G3-ENK" firstAttribute="top" secondItem="ETu-pj-5ES" secondAttribute="top" id="X6n-z0-4Bg"/>
+                            <constraint firstItem="01W-G3-ENK" firstAttribute="leading" secondItem="UbO-2W-jpH" secondAttribute="leadingMargin" id="b3H-5d-oEL"/>
+                            <constraint firstItem="Cmu-BN-HPR" firstAttribute="leading" secondItem="i8z-hE-pKy" secondAttribute="trailing" constant="60" id="x2d-47-qpn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fPN-wh-6gz"/>
