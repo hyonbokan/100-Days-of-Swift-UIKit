@@ -4,7 +4,7 @@
 //
 //  Created by dnlab on 2023/06/24.
 //
-
+import LocalAuthentication
 import UIKit
 
 class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -15,6 +15,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        // Day 93 Challenge - Authenticate using keychain. To fully test it apply save/load data
+        authenticate()
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -98,5 +100,40 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         present(ac, animated: true)
 
     }
+    // Day 93 Challenge - Authenticate using keychain
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+        var copyPeople = people
+        people = []
+        print("Count before: \(people.count)")
+        
+        print("Count after: \(people.count)")
+        collectionView.reloadData()
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Identify yourself!"
+
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, authenticationError in
+                DispatchQueue.main.async {
+                    if success {
+                        self?.people = copyPeople
+                        self?.collectionView.reloadData()
+                    } else {
+                        //error
+                        let ac = UIAlertController(title: "Authentication failed", message: "You could not be verified; please try again", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    }
+                }
+
+            }
+        } else {
+            // no biometry
+            let ac = UIAlertController(title: "Biometry unavailable", message: "Your device is not configured for biometric authentication.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+
+        }
+    }
+    
 }
 
