@@ -10,7 +10,15 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    var currentGame: GameScene?
 
+    @IBOutlet var angleSlider: UISlider!
+    @IBOutlet var angleLabel: UILabel!
+    @IBOutlet var velocitySlider: UISlider!
+    @IBOutlet var velocityLabel: UILabel!
+    @IBOutlet var launchButton: UIButton!
+    @IBOutlet var playerNumber: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +30,9 @@ class GameViewController: UIViewController {
                 
                 // Present the scene
                 view.presentScene(scene)
+                
+                currentGame = scene as? GameScene
+                currentGame?.viewController = self
             }
             
             view.ignoresSiblingOrder = true
@@ -42,4 +53,16 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    @IBAction func angleChanged(_ sender: Any) {
+        angleLabel.text = "Angle: \(Int(angleSlider.value))°"
+    }
+    @IBAction func velocityChanged(_ sender: Any) {
+        velocityLabel.text = "Velocity: \(Int(velocitySlider.value))"
+    }
+    @IBAction func launch(_ sender: Any) {
+        
+    }
+    
+    
 }
