@@ -10,7 +10,7 @@ import UIKit
 
 class SelectionViewController: UITableViewController {
 	var items = [String]() // this is the array that will store the filenames to load
-	var viewControllers = [UIViewController]() // create a cache of the detail view controllers for faster loading
+//	var viewControllers = [UIViewController]() // create a cache of the detail view controllers for faster loading
 	var dirty = false
 
     override func viewDidLoad() {
@@ -20,6 +20,8 @@ class SelectionViewController: UITableViewController {
 
 		tableView.rowHeight = 90
 		tableView.separatorStyle = .none
+        //        Fixing the performance - 3.2: Use dequeueReusableCell
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
 		// load all the JPEGs into our array
 		let fm = FileManager.default
@@ -56,30 +58,55 @@ class SelectionViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-
+        // Fixing the performance - 3: Use dequeueReusableCell
+//		let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+//        var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        
+//        if cell == nil {
+//            cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+//        }
+        //        Fixing the performance - 3.2: Use dequeueReusableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
 		// find the image for this cell, and load its thumbnail
 		let currentImage = items[indexPath.row % items.count]
 		let imageRootName = currentImage.replacingOccurrences(of: "Large", with: "Thumb")
 		let path = Bundle.main.path(forResource: imageRootName, ofType: nil)!
 		let original = UIImage(contentsOfFile: path)!
-
-		let renderer = UIGraphicsImageRenderer(size: original.size)
+        
+        // Fixing the performance - 2
+        let renderRect = CGRect(origin: .zero, size: CGSize(width: 90, height: 90))
+        //
+//		let renderer = UIGraphicsImageRenderer(size: original.size)
+        let renderer = UIGraphicsImageRenderer(size: renderRect.size)
 
 		let rounded = renderer.image { ctx in
-			ctx.cgContext.addEllipse(in: CGRect(origin: CGPoint.zero, size: original.size))
-			ctx.cgContext.clip()
-
-			original.draw(at: CGPoint.zero)
+            // Fixing the performance - 1: But the shadows are not drawn properly
+//            ctx.cgContext.setShadow(offset: .zero, blur: 200, color: UIColor.black.cgColor)
+//            ctx.cgContext.fillEllipse(in: CGRect(origin: .zero, size: original.size))
+//            ctx.cgContext.setShadow(offset: .zero, blur: 0, color: nil)
+            //
+//			ctx.cgContext.addEllipse(in: CGRect(origin: CGPoint.zero, size: original.size))
+//			ctx.cgContext.clip()
+//
+//			original.draw(at: CGPoint.zero)
+            // Fixing the performance - 2: loads smaller images, so loading is faster
+            ctx.cgContext.addEllipse(in: renderRect)
+            ctx.cgContext.clip()
+            
+            original.draw(in: renderRect)
+            
 		}
 
 		cell.imageView?.image = rounded
 
-		// give the images a nice shadow to make them look a bit more dramatic
+		// give the images a nice shadow to make them look a bit more dramatic - This causes the drop in performance
 		cell.imageView?.layer.shadowColor = UIColor.black.cgColor
 		cell.imageView?.layer.shadowOpacity = 1
 		cell.imageView?.layer.shadowRadius = 10
 		cell.imageView?.layer.shadowOffset = CGSize.zero
+        //Fixing the performance
+        cell.imageView?.layer.shadowPath = UIBezierPath(ovalIn: renderRect).cgPath
 
 		// each image stores how often it's been tapped
 		let defaults = UserDefaults.standard
@@ -97,7 +124,7 @@ class SelectionViewController: UITableViewController {
 		dirty = false
 
 		// add to our view controller cache and show
-		viewControllers.append(vc)
+//		viewControllers.append(vc) //takes up memory and not being reused
 		navigationController!.pushViewController(vc, animated: true)
 	}
 }

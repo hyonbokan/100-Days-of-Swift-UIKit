@@ -29,6 +29,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player2ScoreLabel.text = "Player Two: \(player2Score)"
         }
     }
+    var windDirectionLabel: SKLabelNode!
+    let windDirection = [200, 400, -300, -500]
+    var windValue = 0 {
+        didSet {
+            if windValue > 0 {
+                windDirectionLabel.text = "Wind direction: ➡️"
+            } else {
+                windDirectionLabel.text = "Wind direction: ⬅️"
+            }
+        }
+    }
+    
     
     var player1: SKSpriteNode!
     var player2: SKSpriteNode!
@@ -51,6 +63,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player2ScoreLabel.horizontalAlignmentMode = .right
         player2ScoreLabel.fontSize = 20
         addChild(player2ScoreLabel)
+        
+        windDirectionLabel = SKLabelNode(fontNamed: "AmericanTypewriter")
+        windDirectionLabel.text = "Wind direction: UNKNOWN"
+        windDirectionLabel.position = CGPoint(x: 500, y: 650)
+        windDirectionLabel.horizontalAlignmentMode = .center
+        windDirectionLabel.fontSize = 20
+        addChild(windDirectionLabel)
+        
+        windValue = windDirection.randomElement() ?? 0
+        print(windValue)
         
         createBuildings()
         createPlayers()
@@ -91,6 +113,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         banana.physicsBody?.collisionBitMask = CollisionTypes.building.rawValue | CollisionTypes.player.rawValue
         banana.physicsBody?.contactTestBitMask = CollisionTypes.building.rawValue | CollisionTypes.player.rawValue
         banana.physicsBody?.usesPreciseCollisionDetection = true
+        
+        // Challenge 3: Add gravity
+        banana.physicsBody?.velocity = CGVector(dx: windValue, dy: 0)
         addChild(banana)
         
         if currentPlayer == 1 {
@@ -101,6 +126,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let lowerArm = SKAction.setTexture(SKTexture(imageNamed: "player"))
             let pause = SKAction.wait(forDuration: 0.15)
             let sequence = SKAction.sequence([raiseArm, pause, lowerArm])
+            print(banana.physicsBody?.velocity)
             player1.run(sequence)
             
             let impulse = CGVector(dx: cos(radians) * speed, dy: sin(radians) * speed)
