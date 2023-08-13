@@ -84,7 +84,7 @@ class ViewController: UIViewController {
         view.addSubview(buttonsView)
         
         // Adding border and color
-        buttonsView.layer.borderWidth = 1
+        buttonsView.layer.borderWidth = 5
         buttonsView.layer.borderColor = UIColor.lightGray.cgColor
         
         // Positioning and layout of each label

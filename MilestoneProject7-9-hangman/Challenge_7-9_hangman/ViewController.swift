@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     var lettersToGuess = [String]()
     var allWord = [String]()
     var wordToGuess = ""
-    let hangmanString = ""
     let hangmanParts = [
         """
             _______
@@ -103,12 +102,9 @@ class ViewController: UIViewController {
 
         hangMan = UILabel()
         hangMan.translatesAutoresizingMaskIntoConstraints = false
-        hangMan.text = hangmanString
         hangMan.font = UIFont.systemFont(ofSize: 50)
         hangMan.numberOfLines = 0
         hangMan.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
-//        hangMan.backgroundColor = UIColor.lightGray
-//        hangMan.isHidden = true
         view.addSubview(hangMan)
         
         wordToGuessLabel = UILabel()
@@ -119,9 +115,6 @@ class ViewController: UIViewController {
         wordToGuessLabel.textAlignment = .right
         //By setting a lower content hugging priority for a view, you allow it to be stretched or expanded more easily to accommodate additional space. Conversely, setting a higher content hugging priority makes the view more resistant to stretching.
         wordToGuessLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
-//        wordToGuessLabel.layer.borderWidth = 1
-//        wordToGuessLabel.layer.borderColor = UIColor.lightGray.cgColor
-//        wordToGuessLabel.backgroundColor = UIColor.green
         view.addSubview(wordToGuessLabel)
         
         
@@ -134,14 +127,7 @@ class ViewController: UIViewController {
         currentAnswer.textAlignment = .center
         currentAnswer.font = UIFont.systemFont(ofSize: 44)
         view.addSubview(currentAnswer)
-        
-//        let submit = UIButton(type: .system)
-//        submit.translatesAutoresizingMaskIntoConstraints = false
-//        submit.setTitle("Submit", for: .normal)
-//        submit.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-//        submit.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
-//        view.addSubview(submit)
-        
+    
         
         //The area for buttons
         let buttonsView = UIView()
@@ -192,10 +178,7 @@ class ViewController: UIViewController {
             currentAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             currentAnswer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             currentAnswer.topAnchor.constraint(equalTo: wordToGuessLabel.bottomAnchor, constant: 20),
-            
-//            submit.topAnchor.constraint(equalTo: currentAnswer.bottomAnchor),
-//            submit.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            submit.heightAnchor.constraint(equalToConstant: 44),
+    
             
             buttonsView.widthAnchor.constraint(equalToConstant: 560),
             buttonsView.heightAnchor.constraint(equalToConstant: 320),
@@ -211,14 +194,8 @@ class ViewController: UIViewController {
         loadGame()
     }
     
-//    @objc func submitTapped(_ sender: UIButton){
-//        guard let answerText = currentAnswer.text else { return }
-//        if allWord.contains(answerText) {
-//
-//    }
     
     @objc func letterTapped(_ sender: UIButton){
-        // I don't understand why do we need to create arr with activated buttons and the logic of if statement.
         var promptWord = ""
         var strikeCount = 0
         guard let buttonTitle = sender.titleLabel?.text else { return }
@@ -269,12 +246,13 @@ class ViewController: UIViewController {
         var randomAnswer = ""
         var displayString = ""
         var numLetters = 0
+        lettersButtons = []
         activatedButtonText.removeAll()
         lettersToGuess.removeAll()
-        hangMan.text = ""
+        hangMan.text = hangmanParts[0]
         if let filesURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
             if let fileContent = try? String(contentsOf: filesURL){
-                var lines = fileContent.components(separatedBy: "\n")
+                let lines = fileContent.components(separatedBy: "\n")
                 allWord = lines
                 print(lines)
                 randomAnswer = lines.randomElement() ?? "None"
