@@ -318,6 +318,7 @@ class GameScene: SKScene {
             }
             
             if let emitter = SKEmitterNode(fileNamed: "sliceFuse") {
+                print(emitter)
                 emitter.position = CGPoint(x: 76, y: 64)
                 // Add emitter effect to the bomb - "enemy"
                 enemy.addChild(emitter)
