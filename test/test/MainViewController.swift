@@ -43,9 +43,10 @@ class MainViewController: UIViewController {
         
         // Example word sets for each lane
         let wordSets = [
-            ["One", "Two", "Three", "Four"],
-            ["Alpha", "Bravo", "Charlie", "Delta"],
-            ["Apple", "Banana", "Cherry", "Date"]
+            ["apple", "banana", "cherry", "date"],
+            ["fig", "elderberry", "grape", "honeydew"],
+            ["kiwi", "lemon", "mango", "nectarine"],
+            ["papaya", "resberry", "orange", "quince"],
         ]
         
         // Initialize ViewModel & game area
@@ -63,21 +64,21 @@ class MainViewController: UIViewController {
         view.addSubview(resetButton)
         
         // Button actions
-        startButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
-        resetButton.addTarget(self, action: #selector(resetGame), for: .touchUpInside)
+        startButton.addTarget(self, action: #selector(didTouchStartButton), for: .touchUpInside)
+        resetButton.addTarget(self, action: #selector(didTouchResetButton), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let topInset = view.safeAreaInsets.top
         let bottomInset = view.safeAreaInsets.bottom
-        let margin: CGFloat = 20
+        let padding: CGFloat = 20
         
         // Layout the captured label at the top
         capturedLabel.frame = CGRect(
-            x: margin,
-            y: topInset + margin,
-            width: view.bounds.width - margin*2,
+            x: padding,
+            y: topInset + padding,
+            width: view.bounds.width - padding * 2,
             height: 60
         )
         
@@ -86,31 +87,31 @@ class MainViewController: UIViewController {
         let buttonHeight: CGFloat = 44
         
         startButton.frame = CGRect(
-            x: margin,
-            y: view.bounds.height - bottomInset - margin - buttonHeight,
+            x: padding,
+            y: view.bounds.height - bottomInset - padding - buttonHeight,
             width: buttonWidth,
             height: buttonHeight
         )
         
         resetButton.frame = CGRect(
-            x: view.bounds.width - margin - buttonWidth,
+            x: view.bounds.width - padding - buttonWidth,
             y: startButton.frame.origin.y,
             width: buttonWidth,
             height: buttonHeight
         )
         
         // Game area in between
-        let gameAreaY = capturedLabel.frame.maxY + margin
-        let gameAreaHeight = startButton.frame.minY - margin - gameAreaY
+        let gameAreaY = capturedLabel.frame.maxY + padding
+        let gameAreaHeight = startButton.frame.minY - padding - gameAreaY
         gameAreaView.frame = CGRect(
-            x: margin,
+            x: padding,
             y: gameAreaY,
-            width: view.bounds.width - margin*2,
+            width: view.bounds.width - padding * 2,
             height: gameAreaHeight
         )
     }
     
-    @objc private func startGame() {
+    @objc private func didTouchStartButton() {
         // Start the CADisplayLink if not already
         if displayLink == nil {
             lastTime = CACurrentMediaTime()
@@ -118,9 +119,14 @@ class MainViewController: UIViewController {
             dl.add(to: .main, forMode: .common)
             displayLink = dl
         }
+        for laneVM in gameVM.laneViewModels {
+            if !laneVM.wordVMs.isEmpty {
+                laneVM.wordVMs[0].state = .moving
+            }
+        }
     }
     
-    @objc private func resetGame() {
+    @objc private func didTouchResetButton() {
         // Stop the display link
         displayLink?.invalidate()
         displayLink = nil
@@ -130,9 +136,10 @@ class MainViewController: UIViewController {
         
         // Re-instantiate the view model & game area
         let wordSets = [
-            ["One", "Two", "Three", "Four"],
-            ["Alpha", "Bravo", "Charlie", "Delta"],
-            ["Apple", "Banana", "Cherry", "Date"]
+            ["apple", "banana", "cherry", "date"],
+            ["fig", "elderberry", "grape", "honeydew"],
+            ["kiwi", "lemon", "mango", "nectarine"],
+            ["papaya", "resberry", "orange", "quince"],
         ]
         gameVM = GameAreaViewModel(wordSets: wordSets)
         gameAreaView.removeFromSuperview()

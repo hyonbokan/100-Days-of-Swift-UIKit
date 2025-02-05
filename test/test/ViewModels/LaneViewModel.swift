@@ -7,12 +7,8 @@ final class LaneViewModel {
     init(words: [String]) {
         // Create one WordBoxViewModel per string, randomizing speed.
         self.wordVMs = words.map { word in
-            let sp = CGFloat.random(in: 50...150) // adjust range to taste
+            let sp = CGFloat.random(in: 60...300)
             return WordBoxViewModel(word: word, speed: sp)
-        }
-        // Make the first word (if any) start moving
-        if !wordVMs.isEmpty {
-            wordVMs[0].state = .moving
         }
     }
     
