@@ -18,6 +18,7 @@
 		BD008AEA2D5339CF0059596C /* WordBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD008AE92D5339CF0059596C /* WordBoxViewModel.swift */; };
 		BD008AEC2D533A230059596C /* GameAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD008AEB2D533A230059596C /* GameAreaViewModel.swift */; };
 		BD008AEE2D533A440059596C /* LaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD008AED2D533A440059596C /* LaneView.swift */; };
+		BD008AF12D533DEF0059596C /* WordBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD008AF02D533DEF0059596C /* WordBoxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		BD008AE92D5339CF0059596C /* WordBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBoxViewModel.swift; sourceTree = "<group>"; };
 		BD008AEB2D533A230059596C /* GameAreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAreaViewModel.swift; sourceTree = "<group>"; };
 		BD008AED2D533A440059596C /* LaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaneView.swift; sourceTree = "<group>"; };
+		BD008AF02D533DEF0059596C /* WordBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBoxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				BD008ABA2D5319A00059596C /* GameButton.swift */,
 				BD008AE52D532FBF0059596C /* GameAreaView.swift */,
 				BD008AED2D533A440059596C /* LaneView.swift */,
+				BD008AF02D533DEF0059596C /* WordBoxView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				BD008AE62D532FBF0059596C /* GameAreaView.swift in Sources */,
 				BD008A702D52F4050059596C /* AppDelegate.swift in Sources */,
 				BD008A722D52F4050059596C /* SceneDelegate.swift in Sources */,
+				BD008AF12D533DEF0059596C /* WordBoxView.swift in Sources */,
 				BD008AEE2D533A440059596C /* LaneView.swift in Sources */,
 				BD008AEC2D533A230059596C /* GameAreaViewModel.swift in Sources */,
 				BD008ABB2D5319A00059596C /* GameButton.swift in Sources */,

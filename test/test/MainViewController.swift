@@ -43,9 +43,10 @@ class MainViewController: UIViewController {
         
         // Example word sets for each lane
         let wordSets = [
-            ["One", "Two", "Three", "Four"],
-            ["Alpha", "Bravo", "Charlie", "Delta"],
-            ["Apple", "Banana", "Cherry", "Date"]
+            ["apple", "banana", "cherry", "date"],
+            ["fig", "elderberry", "grape", "honeydew"],
+            ["kiwi", "lemon", "mango", "nectarine"],
+            ["papaya", "resberry", "orange", "quince"],
         ]
         
         // Initialize ViewModel & game area
@@ -118,6 +119,11 @@ class MainViewController: UIViewController {
             dl.add(to: .main, forMode: .common)
             displayLink = dl
         }
+        for laneVM in gameVM.laneViewModels {
+            if !laneVM.wordVMs.isEmpty {
+                laneVM.wordVMs[0].state = .moving
+            }
+        }
     }
     
     @objc private func resetGame() {
@@ -130,9 +136,10 @@ class MainViewController: UIViewController {
         
         // Re-instantiate the view model & game area
         let wordSets = [
-            ["One", "Two", "Three", "Four"],
-            ["Alpha", "Bravo", "Charlie", "Delta"],
-            ["Apple", "Banana", "Cherry", "Date"]
+            ["apple", "banana", "cherry", "date"],
+            ["fig", "elderberry", "grape", "honeydew"],
+            ["kiwi", "lemon", "mango", "nectarine"],
+            ["papaya", "resberry", "orange", "quince"],
         ]
         gameVM = GameAreaViewModel(wordSets: wordSets)
         gameAreaView.removeFromSuperview()
