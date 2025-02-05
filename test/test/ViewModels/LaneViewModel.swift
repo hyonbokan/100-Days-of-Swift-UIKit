@@ -10,6 +10,10 @@ final class LaneViewModel {
             let sp = CGFloat.random(in: 60...300)
             return WordBoxViewModel(word: word, speed: sp)
         }
+        // Make the first word (if any) start moving
+//        if !wordVMs.isEmpty {
+//            wordVMs[0].state = .moving
+//        }
     }
     
     /// Updates the active word’s position. If it reaches the right edge, mark it finished and move on.
